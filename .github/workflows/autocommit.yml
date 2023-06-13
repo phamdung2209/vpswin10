@@ -1,0 +1,24 @@
+name: Auto Commit
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  autocommit:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
+      - name: Set up Git
+        run: |
+          git config --global user.name "phamdung2209"
+          git config --global user.email "phamdung.22092003@gmail.com"
+
+      - name: Auto Commit and Push
+        run: |
+          git add .
+          git commit -m "Auto commit"
+          git push
